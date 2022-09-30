@@ -1,3 +1,11 @@
 import {conexionServidor} from './app';
+import { conexionBBDD } from './database';
 
-conexionServidor();
+function iniciarServidor(){
+    conexionBBDD();
+    conexionServidor();
+};
+
+iniciarServidor();
+
+
