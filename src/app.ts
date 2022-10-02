@@ -1,5 +1,6 @@
 import express from 'express'; //Importo express
 import morgan from 'morgan';
+import { router } from './rutas/rutas';
 const app = express();
 
 
@@ -9,6 +10,9 @@ app.set('port', process.env.PORT || 3000);
 //Middleware
 app.use(morgan('dev'));
 app.use(express.json());
+
+//Rutas
+app.use('/api', router); //Indicamos que la ruta /api la procese con router
 
 async function conexionServidor(){
     await app.listen(app.get('port'));
