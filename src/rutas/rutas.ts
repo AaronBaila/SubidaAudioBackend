@@ -1,13 +1,14 @@
 import { Router } from "express";
-import {getTodo} from "../controladores/controladores";
+import {eliminar, eliminarTodo, getTodo, getUno, modificar, publicar} from "../controladores/controladores";
 
 const router = Router();
 
 router.route('/').get(getTodo);
-router.route('/:id').get();
-router.route('/').post();
-router.route('/:id').put();
-router.route('/').delete();
+router.route('/:id').get(getUno);
+router.route('/').post(publicar);
+router.route('/:id').put(modificar);
+router.route('/:id').delete(eliminar);
+router.route('/').delete(eliminarTodo);
 
 
 

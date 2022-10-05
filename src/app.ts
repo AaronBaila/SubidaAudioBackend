@@ -12,8 +12,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //Rutas
-app.use('/api', router); //Indicamos que la ruta /api la procese con router
+app.use('/api/empleados', router); //Indicamos que la ruta /api la procese con router
 
+//Conexion Servidor
 async function conexionServidor(){
     await app.listen(app.get('port'));
     console.log('Conectado al servidor en el puerto ' + app.get('port'));
