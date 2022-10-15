@@ -22,7 +22,17 @@ export  function publicar(req: Request, res: Response): Response {
     return res.json('Dato creado');
 }
 
-export async function subirTrak(req: Request, res: Response): Promise<Response>{
+export function subirTrak(req: Request, res: Response): Response{
+    if(!req.body.nombre){
+        console.log("Debes poner un nombre")
+        return res.json({"status":"ERROR: Debes poner un nombre"})
+    }
+    
+    if(!req.file){
+        console.log("No hay archivo")
+        return res.json({"status":"ERROR: No hay archivo"})
+    }
+
     console.log(req.file)
     console.log(req.body.nombre)
     return res.json({"status":"Archivo subido con exito"})
