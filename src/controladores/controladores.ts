@@ -1,23 +1,5 @@
 import {Request, Response} from 'express';
 import {modeloEmpleados} from '../modelos/modelo';
-import multer from "multer";
-
-//CONFIGURACION MULTER:
-
-//Se crea la variable con la configuracion de almacenaje, donde y nombre con el que se va a almacenar.
-const storage = multer.diskStorage({
-    destination: function (req, file, cb){
-        cb(null, 'uploads/')
-    },
-
-    filename: function(req, file, cb){
-        cb(null, 'Temica' + '-' + Date.now() + ".mp3")
-    }
-})
-
-//Se crea una variable upload con el objeto multer con su configuracion
-const upload = multer({storage: storage});
-
 
 //FUNCIONES:
 
@@ -41,16 +23,8 @@ export  function publicar(req: Request, res: Response): Response {
 }
 
 export async function subirTrak(req: Request, res: Response): Promise<Response>{
-    await upload.single('trak') (req, res, (err) => {
-        if(err){
-            console.log(err.message);
-        }else if(!req.body.nombre){
-            console.log("Es necesario insertar un nombre")
-        }
-        console.log(req.body.nombre);
-        console.log("File: " + req.file);
-    });
-
+    console.log(req.file)
+    console.log(req.body.nombre)
     return res.json({"status":"Archivo subido con exito"})
 }
 
