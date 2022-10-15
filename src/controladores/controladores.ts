@@ -2,7 +2,6 @@ import {Request, Response} from 'express';
 import {modeloEmpleados} from '../modelos/modelo';
 
 //FUNCIONES:
-
 //Al ser una funcion asincrona es necesario añadir el Promise para el return
 export  async function getTodo(req: Request, res: Response): Promise<Response> {
     var empleados = await modeloEmpleados.find();
@@ -25,7 +24,7 @@ export  function publicar(req: Request, res: Response): Response {
 export function subirTrak(req: Request, res: Response): Response{
     if(!req.body.nombre){
         console.log("Debes poner un nombre")
-        return res.json({"status":"ERROR: Debes poner un nombre"})
+        return res.json({"status":"ERROR: Debes poner un nombre, se le asigna undefined"})
     }
     
     if(!req.file){

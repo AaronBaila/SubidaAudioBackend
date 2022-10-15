@@ -13,9 +13,12 @@ const storage = multer.diskStorage({
         cb(null, "Temica" + '-' + Date.now() + ".mp3")
     }
 })
-
 //Se crea una variable upload con el objeto multer con su configuracion
-const upload = multer({storage: storage});
+const upload = multer({storage: storage,
+    limits:{
+        fileSize: 9000000000
+    }
+});
 
 
 const router = Router();
@@ -27,5 +30,6 @@ router.route('/:id').put(modificar);
 router.route('/:id').delete(eliminar);
 router.route('/').delete(eliminarTodo);
 router.route('/subidas').post(upload.single('trak'), subirTrak);
+
 
 export {router};
