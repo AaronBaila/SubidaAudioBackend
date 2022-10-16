@@ -10,7 +10,7 @@ export  async function getTodo(req: Request, res: Response): Promise<Response> {
 
     let db = conexionBBDDBuena()
 
-    var empleados = await conexionBBDDBuena.dataBase.find()
+    var empleados = await conexionBBDDBuena
     console.log(empleados)
     return res.json({empleados})
 
