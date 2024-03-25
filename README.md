@@ -5,9 +5,22 @@ Probar mediante software similar a Postman, ya que no tiene interfaz gráfica.
 
 # Ejecución
 
-- Nos movemos al backend para iniciar el servidor y conectarlo a la BBDD.
-  Ejecuta el siguiente comando dentro de la carpeta del repositorio: 
-  ```bash
-  cd SubidaAudioBackend/
-  npm run dev
-  ```
+- Abrimos una nueva consola y clonamos el proyecto:
+    ```bash
+    git clone https://github.com/AaronBaila/SubidaAudioBackend.git
+    ```
+   
+- Nos movemos al backend para configurarlo:
+    ```bash
+    cd SubidaAudioBackend/
+    ```
+    
+- Instalamos dependencias:
+    ```bash
+    npm install
+    ```
+
+- Iniciamos el servidor backend:
+    ```bash
+    npm run dev
+    ```
